@@ -5,19 +5,24 @@
 <p align="center">
 <img src="https://img.shields.io/badge/Ruby-3.1.2-red.svg?logo=ruby&style=flat" alt="Ruby 3.1.2">
 <img src="https://img.shields.io/badge/Rails-7.0.4-orange.svg?logo=ruby-on-rails&style=flat" alt="Rails 7.0.4">
+<img src="https://img.shields.io/badge/rspec--rails-6.0.3-brightgreen.svg" alt="rspec-rails 6.0.3">
 <img src="https://img.shields.io/badge/Tailwind CSS-3.2.4-green.svg?logo=tailwind-css&style=flat" alt="Tailwind CSS 3.2.4">
 <img src="https://img.shields.io/badge/PostgreSQL-15.x-blue.svg?logo=postgresql&style=flat" alt="PostgreSQL 15.x">
 </p>
 
 # Rails Ecommerce Application 🛍
 
-### Client Sample Page 🛒
+### Customer Sample Page 🛒
 
-continue...
+<p align="center">
+    <img src="./docs/customer-sample.png" alt="logo">
+</p>
 
-### Admin Sample Page 📊
+### Admin Sample Page ⚙️
 
-continue...
+<p align="center">
+    <img src="./docs/admin-sample.png" alt="logo">
+</p>
 
 ### Add Gem package 📦
 
@@ -28,7 +33,9 @@ continue...
 - [stripe]()
 - [rspec-rails]()
 - [factory_bot_rails]()
-- [faker]()
+- [capybara]()
+- [selenium-webdriver]()
+- [webdrivers]()
 - [rubocop]()
 - [rubocop-rails]()
 - [rubocop-performance]()
@@ -41,6 +48,10 @@ continue...
   <summary>Using module list</summary>
 
 </details>
+
+### teaching materials link 📚
+
+https://zenn.dev/farstep/books/7f169cdc597ada
 
 # Directory Structure 📁
 
