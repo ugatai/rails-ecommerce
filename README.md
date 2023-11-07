@@ -56,7 +56,32 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 # Directory Structure 📁
 
 ```
-continue...
+.
+├── .github/
+│   ├── workflows/              # Github Actions configuration files
+├── app/
+│   ├── controllers/            # Contains controller files for the application logic
+│   ├── models/                 # Includes model files representing the data structures
+│   ├── views/                  # Holds view templates for rendering web pages
+│   ├── services/               # Houses service classes and modules
+│
+├── config/
+│   ├── routes.rb               # Defines the application's routing configuration
+├── db/                         # Contains database schema and migration files
+├── docs/                       # Stores documentation files for the project
+│
+├── spec/
+│   ├── models/                 # Contains RSpec tests for models
+│   ├── system/                 # Includes RSpec tests for system-level functionality
+│
+├── .rspec                      # Configuration file for RSpec test suite
+├── .rubocop.yml                # Configuration file for the RuboCop code analyzer
+├── docker-compose.yml          # Configuration file for Docker Compose
+├── Dockerfile                  # Docker container build instructions
+├── Gemfile                     # Lists project dependencies in RubyGems format
+├── Gemfile.lock                # Lock file specifying exact dependency versions
+├── yarn.lock                   # Lock file for Yarn package manager
+
 ```
 
 # Infrastructure 🌐
