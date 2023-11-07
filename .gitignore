@@ -36,4 +36,7 @@ docker-compose.override.yml
 # Ignore rspec result
 rspec_result.html
 
+# Ignore
 /tmp/
+/log/
+/storage/
