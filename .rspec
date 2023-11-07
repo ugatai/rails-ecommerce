@@ -1,0 +1,4 @@
+--require rails_helper
+--color
+--format html
+--out rspec_result.html
