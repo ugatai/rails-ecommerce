@@ -32,3 +32,6 @@ docker-compose.override.yml
 # Ignore IDE setting files
 /.idea/
 /.vscode/
+
+# Ignore rspec result
+rspec_result.html
