@@ -8,6 +8,7 @@
 <img src="https://img.shields.io/badge/rspec--rails-6.0.3-brightgreen.svg" alt="rspec-rails 6.0.3">
 <img src="https://img.shields.io/badge/Tailwind CSS-3.2.4-green.svg?logo=tailwind-css&style=flat" alt="Tailwind CSS 3.2.4">
 <img src="https://img.shields.io/badge/PostgreSQL-15.x-blue.svg?logo=postgresql&style=flat" alt="PostgreSQL 15.x">
+<img src="https://github.com/nickjj/docker-rails-example/workflows/CI/badge.svg?branch=main" alt="PostgreSQL 15.x">
 </p>
 
 # Rails Ecommerce Application 🛍
@@ -56,24 +57,29 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 # Directory Structure 📁
 
 ```
-.
 ├── .github/
 │   ├── workflows/              # Github Actions configuration files
+
 ├── app/
 │   ├── controllers/            # Contains controller files for the application logic
 │   ├── models/                 # Includes model files representing the data structures
 │   ├── views/                  # Holds view templates for rendering web pages
 │   ├── services/               # Houses service classes and modules
-│
+
 ├── config/
 │   ├── routes.rb               # Defines the application's routing configuration
+
 ├── db/                         # Contains database schema and migration files
+
 ├── docs/                       # Stores documentation files for the project
-│
+
 ├── spec/
 │   ├── models/                 # Contains RSpec tests for models
+│   ├── modules/                # Contains RSpec tests for modules
+│   ├── requests/               # Contains RSpec tests for request/response handling
+│   ├── support/                # Holds support files for RSpec configuration
 │   ├── system/                 # Includes RSpec tests for system-level functionality
-│
+
 ├── .rspec                      # Configuration file for RSpec test suite
 ├── .rubocop.yml                # Configuration file for the RuboCop code analyzer
 ├── docker-compose.yml          # Configuration file for Docker Compose
@@ -81,6 +87,7 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 ├── Gemfile                     # Lists project dependencies in RubyGems format
 ├── Gemfile.lock                # Lock file specifying exact dependency versions
 ├── yarn.lock                   # Lock file for Yarn package manager
+
 
 ```
 
@@ -135,7 +142,20 @@ docker-compose down
 ### `rails`
 
 ```sh
-rails hogehoge
+# check routing
+rails routes | grep admins
+# run migration
+rails db:migrate
+# 
+rails active_storage:install
+# etc...
+```
+
+### `bundle`
+
+```sh
+# add annotate comment
+bundle exec annotate --models 
 ```
 
 ### `rubocop`
@@ -145,7 +165,6 @@ setting file - .rubocop.yml
 ```sh
 # Static analysis command
 rubocop
-
 # Auto fix command
 rubocop --auto-correct-all
 ```
@@ -153,7 +172,11 @@ rubocop --auto-correct-all
 ### `rspec`
 
 ```sh
+# run all test file
 bundle exec rspec
+# run select test file
+bundle exec rspec spec/models/admin_spec.rb
+bundle exec rspec spec/system/admins_spec.rb
 ```
 
 ### `deploy` 📲
