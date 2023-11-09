@@ -16,6 +16,7 @@ FactoryBot.define do
     description { 'description/description/description' }
     price { 1000 }
     stock { 5 }
+    image { Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, 'spec', 'fixtures', 'sample.JPG'))) }
   end
 
   factory :invalid_product, class: 'Product' do
@@ -23,5 +24,6 @@ FactoryBot.define do
     description { nil }
     price { 1000 }
     stock { 5 }
+    image { nil }
   end
 end
