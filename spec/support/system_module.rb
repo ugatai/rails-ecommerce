@@ -4,7 +4,7 @@ module SystemModule
     when Admin
       visit new_admin_session_path
     when Customer
-      visit new_admin_session_path
+      visit new_customer_session_path
     else
       raise ArgumentError, "Invalid user type: #{user.class}"
     end

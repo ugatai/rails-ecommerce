@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SystemModule, type: :system do
-  let(:admin) { create(:admin) }
-  let(:customer) { create(:customer) }
+  let(:admin) { create(:valid_admin) }
+  let(:customer) { create(:valid_customer) }
 
   before do
     allow(self).to receive(:visit)
