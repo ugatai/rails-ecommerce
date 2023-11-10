@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :system do
   describe '管理者ログイン' do
-
     let(:admin) { create(:valid_admin) }
 
     before do

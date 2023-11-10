@@ -2,17 +2,17 @@ require 'capybara/rspec'
 require 'selenium-webdriver'
 
 Capybara.register_driver :remote_chrome do |app|
-  url = ENV["SELENIUM_DRIVER_URL"]
+  url = ENV['SELENIUM_DRIVER_URL']
   capabilities = ::Selenium::WebDriver::Remote::Capabilities.chrome(
-    "goog:chromeOptions" => {
-      "args" => %w[no-sandbox headless disable-gpu window-size=1680,1050]
+    'goog:chromeOptions' => {
+      'args' => %w[no-sandbox headless disable-gpu window-size=1680,1050]
     }
   )
 
   Capybara::Selenium::Driver.new(app,
                                  browser: :remote,
-                                 url: url,
-                                 capabilities: capabilities)
+                                 url:,
+                                 capabilities:)
 end
 
 RSpec.configure do |config|
