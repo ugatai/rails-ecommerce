@@ -45,9 +45,14 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Execute jobs in the background [https://github.com/mperham/sidekiq]
 gem "sidekiq", "~> 7.0"
 
+# [https://github.com/heartcombo/devise]
 gem "devise"
 
+# [https://github.com/stripe/stripe-ruby]
 gem "stripe"
+
+# [https://github.com/aws/aws-sdk-ruby]
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
