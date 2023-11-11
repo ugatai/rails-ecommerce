@@ -30,8 +30,9 @@
 <details>
   <summary>Using package list</summary>
 
-- [devise]()
-- [stripe]()
+- [devise](https://github.com/heartcombo/devise)
+- [stripe](https://github.com/stripe/stripe-ruby)
+- [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)
 - [rspec-rails]()
 - [factory_bot_rails]()
 - [capybara]()
