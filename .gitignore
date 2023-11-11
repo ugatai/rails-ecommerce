@@ -40,3 +40,5 @@ rspec_result.html
 /tmp/
 /log/
 /storage/
+
+/config/master.key
