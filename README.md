@@ -13,16 +13,16 @@
 
 # Rails Ecommerce Application 🛍
 
+### Admin Sample Page 👨‍🏫
+
+<p align="center">
+    <img src="./docs/admin-sample.png" alt="logo">
+</p>
+
 ### Customer Sample Page 🛒
 
 <p align="center">
     <img src="./docs/customer-sample.png" alt="logo">
-</p>
-
-### Admin Sample Page ⚙️
-
-<p align="center">
-    <img src="./docs/admin-sample.png" alt="logo">
 </p>
 
 ### Add Gem package 📦
@@ -92,15 +92,17 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 
 ```
 
-# Infrastructure 🌐
+# Infrastructure 
 
-continue...
 
-# DB Structure ⎗
+
+# DB Structure 
 
 <p align="center">
     <img src="./docs/er.png" alt="er">
 </p>
+
+# Participation in Projects
 
 ### `.env`
 
@@ -110,13 +112,29 @@ create .env file to copy .env.example file.
 cp .env.example .env
 ```
 
-update .env file content
+update .env file content in your environment
 
 ```dotenv
 export COMPOSE_PROJECT_NAME=ecommerce
 export POSTGRES_DB=ecommerce
+
 THOR_SILENCE_DEPRECATION=true
+
+# Create aws credential file
+# EDITOR="code --wait" rails credentials:edit
+
+AWS_REGION=ap-northeast-1
+AWS_BUCKET=your-bucket-name
 ```
+
+### `rails`
+
+```sh
+# run migration
+rails db:migrate
+```
+
+# Command
 
 ### `Docker`
 
@@ -138,30 +156,16 @@ docker-compose run --rm web bash
 docker-compose down
 ```
 
-# Command ⌨️
-
-### `rails`
+### `Bundle`
 
 ```sh
-# check routing
-rails routes | grep admins
-# run migration
-rails db:migrate
-# 
-rails active_storage:install
-# etc...
-```
-
-### `bundle`
-
-```sh
-# add annotate comment
+# install gems
+bundle install
+# add annotate comment to model file
 bundle exec annotate --models 
 ```
 
 ### `rubocop`
-
-setting file - .rubocop.yml
 
 ```sh
 # Static analysis command
@@ -173,14 +177,8 @@ rubocop --auto-correct-all
 ### `rspec`
 
 ```sh
-# run all test file
+# Run all test file
 bundle exec rspec
-# run select test file
-bundle exec rspec spec/models/admin_spec.rb
-bundle exec rspec spec/system/admins_spec.rb
-```
-
-### `deploy` 📲
-
-```sh
+# Run select test file
+bundle exec rspec spec/system/hogehoge.rb
 ```
