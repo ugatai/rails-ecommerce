@@ -12,16 +12,28 @@
 require 'rails_helper'
 
 RSpec.describe CartItem, type: :model do
-  context '外部キーが存在する場合' do
-    it '保存処理ができる' do
-      cart_item = create(:valid_cart_item)
-      expect(cart_item).to be_valid
-    end
+  # ファクトリーの作成
+  it 'has a valid factory' do
+    expect(FactoryBot.build(:valid_cart_item)).to be_valid
   end
-  context '外部キーが存在しない場合' do
-    it '保存処理ができない' do
-      cart_item = build(:invalid_cart_item)
-      expect(cart_item).to_not be_valid
-    end
+  it 'has a invalid factory' do
+    expect(FactoryBot.build(:invalid_cart_item)).to be_invalid
+  end
+
+  # モデル内のリレーション定義
+  describe 'associations' do
+    it { should belong_to(:customer) }
+    it { should belong_to(:product) }
+  end
+
+  # モデル属性値バリデーション
+
+  # モデル内定義のメソッドテスト
+  it 'returns calc line total price' do
+    # @type [Product]
+    product = FactoryBot.create(:valid_product)
+    # @type [CartItem]
+    cart_item = FactoryBot.build(:valid_cart_item, quantity: 5, product_id: product.id)
+    expect(cart_item.line_total).to eq 5000
   end
 end
