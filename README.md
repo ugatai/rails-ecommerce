@@ -69,6 +69,7 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 
 ├── config/
 │   ├── routes.rb               # Defines the application's routing configuration
+│   ├── credentials.yml.enc     # File for storing confidential information (e.g., API keys)
 
 ├── db/                         # Contains database schema and migration files
 
@@ -88,8 +89,6 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 ├── Gemfile                     # Lists project dependencies in RubyGems format
 ├── Gemfile.lock                # Lock file specifying exact dependency versions
 ├── yarn.lock                   # Lock file for Yarn package manager
-
-
 ```
 
 # Infrastructure 
@@ -119,13 +118,15 @@ export COMPOSE_PROJECT_NAME=ecommerce
 export POSTGRES_DB=ecommerce
 
 THOR_SILENCE_DEPRECATION=true
-
-# Create aws credential file
-# EDITOR="code --wait" rails credentials:edit
-
-AWS_REGION=ap-northeast-1
-AWS_BUCKET=your-bucket-name
 ```
+
+Create aws credential file 🔑
+
+```sh
+# Select your ide "code" 
+EDITOR="code --wait" rails credentials:edit
+```
+
 
 ### `rails`
 
