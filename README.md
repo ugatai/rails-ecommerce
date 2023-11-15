@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./docs/logo.png" width="400" alt="logo">
+    <img src="./docs/logo.png" width="300" alt="logo">
 </p>
 
 <p align="center">
@@ -38,6 +38,7 @@
 - [capybara]()
 - [selenium-webdriver]()
 - [webdrivers]()
+- [shoulda-matchers]()
 - [rubocop]()
 - [rubocop-rails]()
 - [rubocop-performance]()
@@ -91,21 +92,19 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 ├── yarn.lock                   # Lock file for Yarn package manager
 ```
 
-# Infrastructure 
+# Infrastructure
 
+Creating... 📝
 
+# DB Structure
 
-# DB Structure 
-
-<p align="center">
-    <img src="./docs/er.png" alt="er">
-</p>
+Creating... 📝
 
 # Participation in Projects
 
 ### `.env`
 
-create .env file to copy .env.example file. 
+create .env file to copy .env.example file.
 
 ```sh
 cp .env.example .env
@@ -126,7 +125,6 @@ Create aws credential file 🔑
 # Select your ide "code" 
 EDITOR="code --wait" rails credentials:edit
 ```
-
 
 ### `rails`
 
@@ -181,5 +179,11 @@ rubocop --auto-correct-all
 # Run all test file
 bundle exec rspec
 # Run select test file
-bundle exec rspec spec/system/hogehoge.rb
+bundle exec rspec spec/system/
+```
+
+### `deploy`
+
+```sh
+
 ```
