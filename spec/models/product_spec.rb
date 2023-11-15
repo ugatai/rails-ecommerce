@@ -13,16 +13,22 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  context '必須パラメータが入力されている場合' do
-    it '保存処理ができる' do
-      product = create(:valid_product)
-      expect(product).to be_valid
-    end
+  # ファクトリーの作成
+  it 'has a valid factory' do
+    expect(FactoryBot.build(:valid_product)).to be_valid
   end
-  context '必須パラメータにnilがある場合' do
-    it '保存処理ができない' do
-      product = build(:invalid_product)
-      expect(product).to_not be_valid
-    end
+  it 'has a invalid factory' do
+    expect(FactoryBot.build(:invalid_product)).to be_invalid
   end
+
+  # モデル内のリレーション定義
+  describe 'associations' do
+    it { should have_one_attached(:image) }
+    it { should have_many(:cart_items).dependent(:destroy) }
+    it { should have_many(:order_details).dependent(:destroy) }
+  end
+
+  # モデル属性値バリデーション
+
+  # モデル内定義のメソッドテスト
 end

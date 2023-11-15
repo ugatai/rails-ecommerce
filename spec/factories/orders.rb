@@ -17,22 +17,24 @@
 #
 FactoryBot.define do
   factory :valid_order, class: 'Order' do
-    name { 'name_1' }
+    name { 'order_1' }
     postal_code { 'postal_code' }
     prefecture { 'prefecture' }
     address1 { 'address1' }
     address2 { nil }
     postage { 100 }
     billing_amount { 1000 }
+    customer_id { Customer.maximum(:id) }
   end
 
   factory :invalid_order, class: 'Order' do
-    name { 'name_1' }
+    name { 'order_2' }
     postal_code { 'postal_code' }
     prefecture { 'prefecture' }
-    address1 { nil }
+    address1 { 'address1' }
     address2 { nil }
     postage { 100 }
     billing_amount { 1000 }
+    customer_id { nil }
   end
 end

@@ -15,18 +15,18 @@
 #
 FactoryBot.define do
   factory :valid_customer, class: 'Customer' do
-    email { 'customer@customer.customer' }
+    email { 'customer-test1@customer.customer' }
     password { 'password' }
-    name { 'customer' }
+    name { 'customer-test1' }
     status { 'normal' }
   end
 end
 
 FactoryBot.define do
   factory :invalid_customer, class: 'Customer' do
-    email { nil }
+    email { 'customer-test2@customer.customer' }
     password { 'password' }
-    name { 'customer' }
-    status { 'normal' }
+    name { 'customer-test2' }
+    status { nil }
   end
 end

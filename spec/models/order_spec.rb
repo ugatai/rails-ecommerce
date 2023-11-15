@@ -18,16 +18,15 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  context '必須パラメータが入力されている場合' do
-    it '保存処理ができる' do
-      order = create(:valid_order)
-      expect(order).to be_valid
-    end
+  # ファクトリーの作成
+  it 'has a valid factory' do
+    expect(FactoryBot.build(:valid_order)).to be_valid
   end
-  context '必須パラメータにnilがある場合' do
-    it '保存処理ができない' do
-      order = build(:invalid_order)
-      expect(order).to_not be_valid
-    end
+  it 'has a invalid factory' do
+    expect(FactoryBot.build(:invalid_order)).to be_invalid
   end
+
+  # モデル属性値バリデーション
+
+  # モデル内定義のメソッドテスト
 end

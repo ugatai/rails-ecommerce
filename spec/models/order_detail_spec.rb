@@ -13,16 +13,24 @@
 require 'rails_helper'
 
 RSpec.describe OrderDetail, type: :model do
-  context '必須パラメータが入力されている場合' do
-    it '保存処理ができる' do
-      order_detail = create(:valid_order_detail)
-      expect(order_detail).to be_valid
-    end
+  # ファクトリーの作成
+  it 'has a valid factory' do
+    # リレーション先のデータ確認
+    FactoryBot.create(:valid_order) if Order.maximum(:id).nil?
+    FactoryBot.create(:valid_product) if Product.maximum(:id).nil?
+    expect(FactoryBot.build(:valid_order_detail)).to be_valid
   end
-  context '必須パラメータにnilがある場合' do
-    it '保存処理ができない' do
-      order_detail = build(:invalid_order_detail)
-      expect(order_detail).to_not be_valid
-    end
+  it 'has a invalid factory' do
+    expect(FactoryBot.build(:invalid_order_detail)).to be_invalid
   end
+
+  # モデル内のリレーション定義
+  describe 'associations' do
+    it { should belong_to(:order) }
+    it { should belong_to(:product) }
+  end
+
+  # モデル属性値バリデーション
+
+  # モデル内定義のメソッドテスト
 end
