@@ -33,12 +33,14 @@ docker-compose.override.yml
 /.idea/
 /.vscode/
 
-# Ignore rspec result
-rspec_result.html
-
-# Ignore
+# Ignore directory
 /tmp/
 /log/
 /storage/
 
+
+# Ignore file
 /config/master.key
+rspec_result.html
+CHANGELOG.md
+.DS_Store
