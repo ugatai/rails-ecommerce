@@ -54,6 +54,15 @@ services:
     volumes:
       - "postgres:/var/lib/postgresql/data"
 
+  # Sequel Aceでは接続できなかったので...
+  postgres-gui:
+    image: sosedoff/pgweb
+    container_name: "postgres-gui"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+
   redis:
     deploy:
       resources:
@@ -87,6 +96,7 @@ services:
       WEBPACKER_DEV_SERVER_HOST: webpacker
       SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
 
+  # システムテスト用に追加
   selenium_chrome:
     image: seleniarm/standalone-chromium
     ports:
