@@ -1,44 +1,43 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :system do
-  describe '管理者ログイン' do
-    let(:admin) { create(:valid_admin) }
+RSpec.describe 'Products', type: :system, js: true do
+  # @type [Admin]
+  let(:admin) { create(:valid_admin) }
+  # @type [Product]
+  let(:product) { create(:valid_product) }
 
-    before do
-      allow(self).to receive(:visit)
-      allow(self).to receive(:fill_in)
-      allow(self).to receive(:click_button)
-      login_as(admin)
-    end
+  before do
+    login_as(admin)
+  end
 
-    it '管理画面側で商品の追加ができる' do
+  describe 'Admin Product Manual' do
+    it 'Create Product' do
       visit new_admin_product_path
 
-      fill_in 'Name', with: '追加商品'
-      fill_in 'Description', with: '商品説明がここに入ります。商品説明がここに入ります。商品説明がここに入ります。'
+      fill_in 'Name', with: 'product1'
+      fill_in 'Description', with: 'Description,Description,Description,Description,Description'
       fill_in 'Price', with: 1000
-      fill_in 'Stock', with: 5
+      fill_in 'Stock', with: 1
+      attach_file 'Image', Rails.root.join('spec/fixtures/christmas-6832802_1280.jpg')
       click_button 'Create Product'
 
-      expect(page).to have_content('追加商品')
-      expect(page).to have_content('商品説明がここに入ります。商品説明がここに入ります。商品説明がここに入ります。')
+      expect(page).to have_content('product1')
+      expect(page).to have_content('Description,Description,Description,Description,Description')
       expect(page).to have_content('¥1,000')
-      expect(page).to have_content('In stock (5)')
+      expect(page).to have_content('In stock (1)')
     end
 
-    it '管理画面側で商品の編集ができる' do
-      visit edit_admin_product_path(Product.last)
+    it 'Edit Product Manual' do
+      visit edit_admin_product_path(product)
 
-      fill_in 'Name', with: '更新追加商品'
-      fill_in 'Description', with: '商品説明がここに入ります。商品説明がここに入ります。商品説明がここに入ります。'
-      fill_in 'Price', with: 1000
-      fill_in 'Stock', with: 12
-      click_button 'Edit Product'
+      fill_in 'Name', with: 'edit_product'
+      fill_in 'Stock', with: 10
+      click_button 'Update Product'
 
-      expect(page).to have_content('更新追加商品')
-      expect(page).to have_content('商品説明がここに入ります。商品説明がここに入ります。商品説明がここに入ります。')
+      expect(page).to have_content('edit_product')
+      expect(page).to have_content('description/description/description')
       expect(page).to have_content('¥1,000')
-      expect(page).to have_content('In stock (12)')
+      expect(page).to have_content('In stock (10)')
     end
   end
 end
