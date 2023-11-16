@@ -20,9 +20,7 @@ FactoryBot.define do
     name { 'customer-test1' }
     status { 'normal' }
   end
-end
 
-FactoryBot.define do
   factory :invalid_customer, class: 'Customer' do
     email { 'customer-test2@customer.customer' }
     password { 'password' }

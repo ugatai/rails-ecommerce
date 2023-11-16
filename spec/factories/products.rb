@@ -16,12 +16,14 @@ FactoryBot.define do
     description { 'description/description/description' }
     price { 1000 }
     stock { 5 }
-    image { Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, 'spec', 'fixtures', 'sample.JPG'))) }
+    image do
+      Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, 'spec', 'fixtures', 'christmas-6832802_1280.jpg')))
+    end
   end
 
   factory :invalid_product, class: 'Product' do
     name { 'invalid_product' }
-    description { nil }
+    description { 'description/description/description' }
     price { 1000 }
     stock { 5 }
     image { nil }

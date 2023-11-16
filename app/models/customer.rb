@@ -19,6 +19,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
+
   with_options presence: true do
     validates :name
     validates :status
@@ -29,7 +32,4 @@ class Customer < ApplicationRecord
     withdrawn: 1,
     banned: 2
   }
-
-  has_many :cart_items, dependent: :destroy
-  has_many :orders, dependent: :destroy
 end

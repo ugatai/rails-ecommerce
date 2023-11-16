@@ -16,7 +16,6 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  # ファクトリーの作成
   it 'has a valid factory' do
     expect(FactoryBot.build(:valid_customer)).to be_valid
   end
@@ -24,12 +23,9 @@ RSpec.describe Customer, type: :model do
     expect(FactoryBot.build(:invalid_customer)).to be_invalid
   end
 
-  # モデル属性値バリデーション
   it { is_expected.to validate_presence_of :email }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_presence_of :password }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_presence_of :status }
-
-  # モデル内定義のメソッドテスト
 end

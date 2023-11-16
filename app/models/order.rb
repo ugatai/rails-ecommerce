@@ -16,6 +16,9 @@
 #  updated_at     :datetime         not null
 #
 class Order < ApplicationRecord
+  belongs_to :customer
+  has_many :order_details, dependent: :destroy
+
   enum status: {
     waiting_payment: 0,
     confirm_payment: 1,
@@ -23,6 +26,4 @@ class Order < ApplicationRecord
     out_of_delivery: 3,
     delivered: 4
   }
-  belongs_to :customer
-  has_many :order_details, dependent: :destroy
 end

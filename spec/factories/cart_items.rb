@@ -15,6 +15,7 @@ FactoryBot.define do
     customer_id { Customer.maximum(:id) }
     product_id { Product.maximum(:id) }
   end
+
   factory :invalid_cart_item, class: 'CartItem' do
     quantity { 1 }
     customer_id { 999 }
