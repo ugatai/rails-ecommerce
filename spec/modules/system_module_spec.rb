@@ -1,30 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe SystemModule, type: :system do
+RSpec.describe 'SystemModule', type: :system, js: true do
   let(:admin) { create(:valid_admin) }
   let(:customer) { create(:valid_customer) }
 
-  before do
-    allow(self).to receive(:visit)
-    allow(self).to receive(:fill_in)
-    allow(self).to receive(:click_button)
-  end
-
-  it '管理者としてのログイン動作' do
+  it 'login as admin' do
     login_as(admin)
-
-    expect(self).to have_received(:visit).with(new_admin_session_path)
-    expect(self).to have_received(:fill_in).with('Email', with: admin.email)
-    expect(self).to have_received(:fill_in).with('Password', with: admin.password)
-    expect(self).to have_received(:click_button).with('Sign In')
+    expect(page).to have_content('Signed in successfully.')
   end
 
-  it '顧客としてのログイン動作' do
+  it 'login as customer' do
     login_as(customer)
-
-    expect(self).to have_received(:visit).with(new_customer_session_path)
-    expect(self).to have_received(:fill_in).with('Email', with: customer.email)
-    expect(self).to have_received(:fill_in).with('Password', with: customer.password)
-    expect(self).to have_received(:click_button).with('Sign In')
+    expect(page).to have_content('Signed in successfully.')
   end
 end
