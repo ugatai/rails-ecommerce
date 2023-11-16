@@ -64,6 +64,9 @@ RSpec.configure do |config|
   # user = FactoryBot.create(:user)
   # user = create(:user) # FactoryBotを略す
   config.include FactoryBot::Syntax::Methods
+
+  # sign_in user でコールできる
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
 
 # Matchers Setting (test model validation)
