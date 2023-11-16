@@ -1,6 +1,9 @@
 require 'capybara/rspec'
 require 'selenium-webdriver'
 
+# Capybara.javascript_driverの設定
+Capybara.javascript_driver = :remote_chrome
+# :remote_chrome ドライバーの登録
 Capybara.register_driver :remote_chrome do |app|
   url = ENV['SELENIUM_DRIVER_URL']
   capabilities = ::Selenium::WebDriver::Remote::Capabilities.chrome(
@@ -8,20 +11,13 @@ Capybara.register_driver :remote_chrome do |app|
       'args' => %w[no-sandbox headless disable-gpu window-size=1680,1050]
     }
   )
-
-  Capybara::Selenium::Driver.new(app,
-                                 browser: :remote,
-                                 url:,
-                                 capabilities:)
+  Capybara::Selenium::Driver.new(app, browser: :remote, url:, capabilities:)
 end
-
-Capybara.javascript_driver = :remote_chrome
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
-
   config.before(:each, type: :system, js: true) do
     Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
     Capybara.server_port = 4444

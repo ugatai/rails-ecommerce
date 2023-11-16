@@ -10,14 +10,15 @@
 #  updated_at  :datetime         not null
 #
 FactoryBot.define do
+  # テストコードでは customer_id, product_id 上書き
   factory :valid_cart_item, class: 'CartItem' do
-    quantity { 1 }
-    customer_id { Customer.maximum(:id) }
-    product_id { Product.maximum(:id) }
+    quantity { 5 }
+    customer_id { 1 }
+    product_id { 1 }
   end
 
   factory :invalid_cart_item, class: 'CartItem' do
-    quantity { 1 }
+    quantity { 5 }
     customer_id { 999 }
     product_id { 999 }
   end

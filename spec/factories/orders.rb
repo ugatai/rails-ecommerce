@@ -24,7 +24,7 @@ FactoryBot.define do
     address2 { nil }
     postage { 100 }
     billing_amount { 1000 }
-    customer_id { Customer.maximum(:id) }
+    customer_id { 1 }
   end
 
   factory :invalid_order, class: 'Order' do

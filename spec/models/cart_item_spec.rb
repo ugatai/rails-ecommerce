@@ -12,8 +12,13 @@
 require 'rails_helper'
 
 RSpec.describe CartItem, type: :model do
+  # @type [Customer]
+  let(:customer) { create(:valid_customer) }
+  # @type [Product]
+  let(:product) { create(:valid_product) }
+
   it 'has a valid factory' do
-    expect(FactoryBot.build(:valid_cart_item)).to be_valid
+    expect(FactoryBot.build(:valid_cart_item, customer_id: customer.id, product_id: product.id)).to be_valid
   end
   it 'has a invalid factory' do
     expect(FactoryBot.build(:invalid_cart_item)).to be_invalid
@@ -25,10 +30,8 @@ RSpec.describe CartItem, type: :model do
   end
 
   it 'returns calc line total price' do
-    # @type [Product]
-    product = FactoryBot.create(:valid_product)
     # @type [CartItem]
-    cart_item = FactoryBot.build(:valid_cart_item, quantity: 5, product_id: product.id)
+    cart_item = FactoryBot.build(:valid_cart_item, customer_id: customer.id, product_id: product.id)
     expect(cart_item.line_total).to eq 5000
   end
 end

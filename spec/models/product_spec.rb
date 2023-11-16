@@ -13,6 +13,13 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  # @type [Product]
+  let!(:product1) { FactoryBot.create(:valid_product, name: 'product1', price: 100) }
+  # @type [Product]
+  let!(:product2) { FactoryBot.create(:valid_product, name: 'product2', price: 50) }
+  # @type [Product]
+  let!(:product3) { FactoryBot.create(:valid_product, name: 'product3', price: 80) }
+
   it 'has a valid factory' do
     expect(FactoryBot.build(:valid_product)).to be_valid
   end
@@ -33,22 +40,18 @@ RSpec.describe Product, type: :model do
   end
 
   describe 'scopes' do
-    let!(:product1) { FactoryBot.create(:valid_product, name: 'product1', price: 100) }
-    let!(:product2) { FactoryBot.create(:valid_product, name: 'product2', price: 50) }
-    let!(:product3) { FactoryBot.create(:valid_product, name: 'product3', price: 80) }
+    describe '.price_high_to_low' do
+      it 'returns products ordered by price in descending order' do
+        products = Product.price_high_to_low
+        expect(products).to eq([product1, product3, product2])
+      end
+    end
 
-    # describe ".price_high_to_low" do
-    #   it "returns products ordered by price in descending order" do
-    #     products = Product.price_high_to_low
-    #     expect(products).to eq([product1, product3, product2])
-    #   end
-    # end
-    #
-    # describe ".price_low_to_high" do
-    #   it "returns products ordered by price in ascending order" do
-    #     products = Product.price_low_to_high
-    #     expect(products).to eq([product2, product3, product1])
-    #   end
-    # end
+    describe '.price_low_to_high' do
+      it 'returns products ordered by price in ascending order' do
+        products = Product.price_low_to_high
+        expect(products).to eq([product2, product3, product1])
+      end
+    end
   end
 end

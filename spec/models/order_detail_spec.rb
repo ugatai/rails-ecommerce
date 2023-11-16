@@ -13,10 +13,15 @@
 require 'rails_helper'
 
 RSpec.describe OrderDetail, type: :model do
+  # @type [Customer]
+  let(:customer) { create(:valid_customer) }
+  # @type [Order]
+  let(:order) { create(:valid_order, customer_id: customer.id) }
+  # @type [Product]
+  let(:product) { create(:valid_product) }
+
   it 'has a valid factory' do
-    FactoryBot.create(:valid_order) if Order.maximum(:id).nil?
-    FactoryBot.create(:valid_product) if Product.maximum(:id).nil?
-    expect(FactoryBot.build(:valid_order_detail)).to be_valid
+    expect(FactoryBot.build(:valid_order_detail, order_id: order.id, product_id: product.id)).to be_valid
   end
   it 'has a invalid factory' do
     expect(FactoryBot.build(:invalid_order_detail)).to be_invalid
