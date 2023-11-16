@@ -14,7 +14,6 @@
 require 'rails_helper'
 
 RSpec.describe Admin, type: :model do
-  # ファクトリーの作成
   it 'has a valid factory' do
     expect(FactoryBot.build(:valid_admin)).to be_valid
   end
@@ -22,10 +21,7 @@ RSpec.describe Admin, type: :model do
     expect(FactoryBot.build(:invalid_admin)).to be_invalid
   end
 
-  # モデル属性値バリデーション
   it { is_expected.to validate_presence_of :email }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_presence_of :password }
-
-  # モデル内定義のメソッドテスト
 end

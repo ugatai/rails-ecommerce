@@ -17,6 +17,7 @@ FactoryBot.define do
     order_id { Order.maximum(:id) }
     product_id { Product.maximum(:id) }
   end
+
   factory :invalid_order_detail, class: 'OrderDetail' do
     price { 1000 }
     quantity { 5 }

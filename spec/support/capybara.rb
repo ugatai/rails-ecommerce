@@ -15,6 +15,8 @@ Capybara.register_driver :remote_chrome do |app|
                                  capabilities:)
 end
 
+Capybara.javascript_driver = :remote_chrome
+
 RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :rack_test

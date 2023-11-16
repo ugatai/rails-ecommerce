@@ -63,12 +63,9 @@ RSpec.configure do |config|
   # user = FactoryBot.create(:user)
   # user = create(:user) # FactoryBotを略す
   config.include FactoryBot::Syntax::Methods
-
-  # 以下はカスタムで定義したサポートモジュール
-  config.include SystemModule
 end
 
-# Gem Matchers
+# Matchers Setting (test model validation)
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
