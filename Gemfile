@@ -86,4 +86,9 @@ group :development do
   gem "rubocop-rails", require: false
 
   gem 'annotate'
+
+  gem 'yard'
+  gem 'guard-yard'
+  gem 'yard-activesupport-concern'
+  gem 'redcarpet'
 end

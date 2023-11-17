@@ -1,0 +1,10 @@
+--protected
+--no-private
+# markdown で書けるようになる
+--markup markdown
+#--markup-provider redcarpet v0.7.4 から不要
+#--exclude /lib/tasks 不要なディレクトリを指定
+#--asset docs/images:images ドキュメントで利用したい画像などがある場合
+# Rails で Concern 使う場合は必須
+--plugin activesupport-concern
+#--load ./docs/templates/plugin.rb # 自作プラグインがある場合

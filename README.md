@@ -42,6 +42,7 @@
 - [rubocop]()
 - [rubocop-rails]()
 - [rubocop-performance]()
+- [yard]()
 
 </details>
 
@@ -180,6 +181,13 @@ rubocop --auto-correct-all
 bundle exec rspec
 # Run select test file
 bundle exec rspec spec/system/
+```
+
+### `yard`
+
+```sh
+bundle exec yard
+bundle bundle exec yard server
 ```
 
 ### `deploy`
