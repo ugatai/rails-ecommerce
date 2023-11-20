@@ -190,6 +190,13 @@ bundle exec yard
 bundle bundle exec yard server
 ```
 
+### `stripe`
+
+```sh
+# build stripe webhook server
+stripe listen --forward-to localhost:8000/webhooks
+```
+
 ### `deploy`
 
 ```sh

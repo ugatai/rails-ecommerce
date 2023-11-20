@@ -6,7 +6,7 @@ class Customer::OrdersController < ApplicationController
   end
 
   def show
-    @orders = current_customer.orders.find(params[:id])
+    @order = current_customer.orders.find(params[:id])
   end
 
   def success; end
