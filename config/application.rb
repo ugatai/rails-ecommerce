@@ -10,6 +10,8 @@ module Hello
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    # Set Application time zone
+    config.time_zone = 'Tokyo'
 
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then collect logs using journald, syslog or forward them somewhere else.
