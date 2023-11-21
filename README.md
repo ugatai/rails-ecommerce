@@ -95,7 +95,9 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 
 # Infrastructure
 
-Creating... 📝
+<p align="center">
+    <img src="./docs/infrastructure.png" width="400" alt="logo">
+</p>
 
 # DB Structure
 
