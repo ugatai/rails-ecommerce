@@ -69,6 +69,8 @@ group :development, :test do
   gem "webdrivers"
 
   gem 'shoulda-matchers'
+
+  gem 'bullet'
 end
 
 group :development do

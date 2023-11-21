@@ -33,6 +33,7 @@
 - [devise](https://github.com/heartcombo/devise)
 - [stripe](https://github.com/stripe/stripe-ruby)
 - [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)
+- [bullet](https://github.com/flyerhzm/bullet)
 - [rspec-rails]()
 - [factory_bot_rails]()
 - [capybara]()
