@@ -51,4 +51,9 @@ class Customer < ApplicationRecord
       }
     end
   end
+
+  # @return [Boolean]
+  def active_for_authentication?
+    super && (status == 'normal')
+  end
 end
