@@ -30,21 +30,18 @@
 <details>
   <summary>Using package list</summary>
 
-- [devise](https://github.com/heartcombo/devise)
-- [stripe](https://github.com/stripe/stripe-ruby)
-- [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)
-- [bullet](https://github.com/flyerhzm/bullet)
-- [rspec-rails]()
-- [factory_bot_rails]()
-- [capybara]()
-- [selenium-webdriver]()
-- [webdrivers]()
-- [shoulda-matchers]()
-- [rubocop]()
-- [rubocop-rails]()
-- [rubocop-performance]()
-- [yard]()
-- [capistrano]()
+- [devise * ユーザー認証](https://github.com/heartcombo/devise)
+- [stripe * Stripe決済](https://github.com/stripe/stripe-ruby)
+- [aws-sdk-s3 * AWS S3 SDK](https://github.com/aws/aws-sdk-ruby)
+- [bullet * N+1の通知](https://github.com/flyerhzm/bullet)
+- [rspec-rails * テストフレームワーク]()
+- [factory_bot_rails * ユーザー認証]()
+- [capybara * システムテスト用]()
+- [selenium-webdriver * システムテスト用]()
+- [shoulda-matchers * モデルテストの記述省略]()
+- [rubocop * 自動フォーマット]()
+- [yard * ドキュメント生成]()
+- [capistrano * デプロイ用]()
 
 </details>
 
@@ -53,6 +50,7 @@
 <details>
   <summary>Using module list</summary>
 
+- [tailwindcss * CSSフレームワーク]()
 </details>
 
 ### teaching materials link 📚
@@ -203,6 +201,8 @@ stripe listen --forward-to localhost:8000/webhooks
 ```
 
 ### `deploy`
+
+https://capistranorb.com/
 
 ```sh
 bundle exec cap production deploy
