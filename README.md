@@ -44,6 +44,7 @@
 - [rubocop-rails]()
 - [rubocop-performance]()
 - [yard]()
+- [capistrano]()
 
 </details>
 
@@ -85,6 +86,7 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 │   ├── support/                # Holds support files for RSpec configuration
 │   ├── system/                 # Includes RSpec tests for system-level functionality
 
+├── Capfile                     # Configuration file for Capfile
 ├── .rspec                      # Configuration file for RSpec test suite
 ├── .rubocop.yml                # Configuration file for the RuboCop code analyzer
 ├── docker-compose.yml          # Configuration file for Docker Compose
@@ -203,5 +205,5 @@ stripe listen --forward-to localhost:8000/webhooks
 ### `deploy`
 
 ```sh
-
+bundle exec cap production deploy
 ```
