@@ -13,6 +13,8 @@
 
 # Rails Ecommerce Application 🛍
 
+#### Application URL: http://prod-rails-ecommerce.com/
+
 ### Admin Sample Page 👨‍🏫
 
 <p align="center">
