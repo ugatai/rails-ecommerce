@@ -143,7 +143,7 @@ rails db:migrate
 
 #### Build everything:
 
-```do
+```sh
 docker-compose build --no-cache
 ```
 
