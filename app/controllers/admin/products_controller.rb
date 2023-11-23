@@ -6,7 +6,9 @@ class Admin::ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @product.destroy
+  end
 
   def new
     @product = Product.new
