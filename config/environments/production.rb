@@ -52,11 +52,11 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # AWS SES settings
-  credentials = Aws::Credentials.new(Rails.application.credentials.dig(:aws, :access_key_id), Rails.application.credentials.dig(:aws, :secret_access_key))
-  Aws::Rails.add_action_mailer_delivery_method(:ses, credentials:, region: 'ap-northeast-1')
+  creds = Aws::Credentials.new(Rails.application.credentials.dig(:aws, :access_key_id), Rails.application.credentials.dig(:aws, :secret_access_key))
+  Aws::Rails.add_action_mailer_delivery_method(:aws_sdk, credentials: creds, region: 'ap-northeast-1')
 
-  config.action_mailer.default_url_options = { host: 'imeezi.com' }
-  config.action_mailer.delivery_method = :ses
+  config.action_mailer.default_url_options = { host: 'https://prod-rails-ecommerce.com/' }
+  config.action_mailer.delivery_method = :aws_sdk
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
