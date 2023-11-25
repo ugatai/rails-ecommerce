@@ -35,6 +35,7 @@
 - [devise * ユーザー認証](https://github.com/heartcombo/devise)
 - [stripe * Stripe決済](https://github.com/stripe/stripe-ruby)
 - [aws-sdk-s3 * AWS S3 SDK](https://github.com/aws/aws-sdk-ruby)
+- [aws-sdk-rails * AWS SES](https://github.com/aws/aws-sdk-ruby)
 - [bullet * N+1の通知](https://github.com/flyerhzm/bullet)
 - [rspec-rails * テストフレームワーク]()
 - [factory_bot_rails * ユーザー認証]()
