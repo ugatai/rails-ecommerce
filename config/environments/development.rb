@@ -53,6 +53,18 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  # Use the lowest log level to ensure availability of diagnostic information
+  config.action_mailer.default_url_options = {  host: 'localhost', port: 8000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: Rails.application.credentials.dig(:gmail, :email),
+    password: Rails.application.credentials.dig(:gmail, :app_password),
+    authentication: :login
+  }
+
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
 

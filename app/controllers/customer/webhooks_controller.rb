@@ -35,6 +35,8 @@ class Customer::WebhooksController < ApplicationController
       end
 
       customer.cart_items.destroy_all
+      OrderMailer.complete(email: session.customer_details.email).deliver_later
+
       redirect_to session.success_url
     else
       # type code here
