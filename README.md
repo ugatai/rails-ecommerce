@@ -50,16 +50,6 @@
 
 </details>
 
-# DB Structure
-
-Creating... 📝
-
-# Infrastructure
-
-<p align="center">
-    <img src="./docs/infrastructure.png" width="600" alt="logo">
-</p>
-
 # Directory Structure
 
 ```
@@ -96,7 +86,27 @@ Creating... 📝
 ├── yarn.lock                   # Lock file for Yarn package manager
 ```
 
+# DB Structure
+
+Creating... 📝
+
+# Infrastructure
+
+<p align="center">
+    <img src="./docs/infrastructure.png" width="600" alt="logo">
+</p>
+
 # Participation in Projects
+
+### --- Git Flow ⚠️ ---
+
+- `develop` - staging environment
+- `release` - pre marge main branch
+- `main` - production environment
+
+pull request flow : `develop -> release -> main`
+
+### --- Setting ⚙️ ---
 
 ### `.env`
 
@@ -122,6 +132,26 @@ Create aws credential file 🔑
 EDITOR="cursor --wait" rails credentials:edit 
 ```
 
+```yaml
+  # aws environment（Allow policy s3 and ses）
+  aws:
+  access_key_id:
+  secret_access_key:
+  # stripe environment
+  stripe:
+    publishable_key:
+    secret_key:
+    endpoint_secret:
+  # local mail environment
+  gmail:
+    email:
+    app_password:
+  # rds
+  db:
+    password:
+    hostname:
+```
+
 ### `rails`
 
 ```sh
@@ -137,6 +167,7 @@ rails db:migrate
 
 ```sh
 docker-compose build --no-cache
+docker-compose up -d
 ```
 
 #### Access to Docker application containers
@@ -185,16 +216,7 @@ bundle exec yard
 bundle bundle exec yard server
 ```
 
-### `stripe`
-
-```sh
-# build stripe webhook server
-stripe listen --forward-to localhost:8000/webhooks
-```
-
 ### `deploy`
-
-https://capistranorb.com/
 
 ```sh
 bundle exec cap production deploy
