@@ -13,54 +13,54 @@
 
 # Rails Ecommerce Application 🛍
 
-#### Application URL: https://prod-rails-ecommerce.com/
+### Sample View Page 🛒
 
-### Admin Sample Page 👨‍🏫
+#### Application URL: https://prod-rails-ecommerce.com/
 
 <p align="center">
     <img src="./docs/admin-sample.png" alt="logo">
 </p>
 
-### Customer Sample Page 🛒
-
-<p align="center">
-    <img src="./docs/customer-sample.png" alt="logo">
-</p>
-
-### Add Gem package 📦
+### Gem 💎
 
 <details>
-  <summary>Using package list</summary>
+  <summary>list</summary>
 
-- [devise * ユーザー認証](https://github.com/heartcombo/devise)
+- [devise * ユーザー認証系](https://github.com/heartcombo/devise)
 - [stripe * Stripe決済](https://github.com/stripe/stripe-ruby)
-- [aws-sdk-s3 * AWS S3 SDK](https://github.com/aws/aws-sdk-ruby)
-- [aws-sdk-rails * AWS SDK](https://github.com/aws/aws-sdk-ruby)
-- [bullet * N+1の通知](https://github.com/flyerhzm/bullet)
+- [aws-sdk-rails * Amazon Web Service SDK](https://github.com/aws/aws-sdk-ruby)
+- [bullet * N+1検知](https://github.com/flyerhzm/bullet)
+- [factory_bot_rails * ダミーデータ作成]()
 - [rspec-rails * テストフレームワーク]()
-- [factory_bot_rails * ユーザー認証]()
-- [capybara * システムテスト用]()
-- [selenium-webdriver * システムテスト用]()
-- [shoulda-matchers * モデルテストの記述省略]()
+- [capybara * システムテストの自動化]()
+- [selenium-webdriver * システムテストの自動化]()
+- [shoulda-matchers * モデルテストの記述省略化]()
 - [rubocop * 自動フォーマット]()
-- [yard * ドキュメント生成]()
 - [capistrano * デプロイ用]()
+- [yard * ドキュメント生成]()
 
 </details>
 
-### Add Node Modules 📦
+### Node 📖
 
 <details>
-  <summary>Using module list</summary>
+  <summary>list</summary>
 
 - [tailwindcss * CSSフレームワーク]()
+
 </details>
 
-### teaching materials link 📚
+# DB Structure
 
-https://zenn.dev/farstep/books/7f169cdc597ada
+Creating... 📝
 
-# Directory Structure 📁
+# Infrastructure
+
+<p align="center">
+    <img src="./docs/infrastructure.png" width="600" alt="logo">
+</p>
+
+# Directory Structure
 
 ```
 ├── .github/
@@ -70,7 +70,6 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 │   ├── controllers/            # Contains controller files for the application logic
 │   ├── models/                 # Includes model files representing the data structures
 │   ├── views/                  # Holds view templates for rendering web pages
-│   ├── services/               # Houses service classes and modules
 
 ├── config/
 │   ├── routes.rb               # Defines the application's routing configuration
@@ -97,16 +96,6 @@ https://zenn.dev/farstep/books/7f169cdc597ada
 ├── yarn.lock                   # Lock file for Yarn package manager
 ```
 
-# Infrastructure
-
-<p align="center">
-    <img src="./docs/infrastructure.png" width="600" alt="logo">
-</p>
-
-# DB Structure
-
-Creating... 📝
-
 # Participation in Projects
 
 ### `.env`
@@ -129,8 +118,8 @@ THOR_SILENCE_DEPRECATION=true
 Create aws credential file 🔑
 
 ```sh
-# Select your ide "code" 
-EDITOR="code --wait" rails credentials:edit
+# Select your ide "cursor" 
+EDITOR="cursor --wait" rails credentials:edit 
 ```
 
 ### `rails`
