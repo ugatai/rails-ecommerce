@@ -1,18 +1,18 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.18.0"
+lock '~> 3.18.0'
 
 # ***** 以下を修正 *****
-set :application, "rails_ecommerce"
-set :repo_url, "git@github.com:ugatai/rails-ecommerce.git"
+set :application, 'rails_ecommerce'
+set :repo_url, 'git@github.com:ugatai/rails-ecommerce.git'
 set :rbenv_ruby, File.read('.ruby-version').strip
-set :branch, ENV['BRANCH'] || "develop"
+set :branch, ENV['BRANCH'] || 'develop'
 
 # Nginxの設定ファイル名と置き場所を修正
 set :nginx_config_name, "#{fetch(:application)}.conf"
-set :nginx_sites_enabled_path, "/etc/nginx/conf.d"
+set :nginx_sites_enabled_path, '/etc/nginx/conf.d'
 
-append :linked_files, "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "node_modules"
+append :linked_files, 'config/master.key'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'node_modules'
 # ***** 以上を追加 *****
 
 # Default branch is :master
