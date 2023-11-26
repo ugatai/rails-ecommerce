@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./docs/logo.png" width="300" alt="logo">
+    <img src="./docs/logo.png" width="400" alt="logo">
 </p>
 
 <p align="center">
@@ -22,38 +22,38 @@
 
 - [devise * ユーザー認証系](https://github.com/heartcombo/devise)
 - [stripe * Stripe決済](https://github.com/stripe/stripe-ruby)
-- [aws-sdk-rails * Amazon Web Service SDK](https://github.com/aws/aws-sdk-ruby)
+- [aws-sdk-rails * Amazon Web Service SDK](https://github.com/aws/aws-sdk-rails)
 - [bullet * N+1検知](https://github.com/flyerhzm/bullet)
-- [factory_bot_rails * ダミーデータ作成]()
-- [rspec-rails * テストフレームワーク]()
-- [capybara * システムテストの自動化]()
-- [selenium-webdriver * システムテストの自動化]()
-- [shoulda-matchers * モデルテストの記述省略化]()
-- [rubocop * 自動フォーマット]()
-- [capistrano * デプロイ用]()
-- [yard * ドキュメント生成]()
+- [factory_bot_rails * ダミーデータ作成](https://github.com/thoughtbot/factory_bot_rails)
+- [rspec-rails * テストフレームワーク](https://github.com/rspec/rspec-rails)
+- [capybara * システムテストの自動化](https://github.com/teamcapybara/capybara)
+- [selenium-webdriver * システムテストの自動化](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)
+- [shoulda-matchers * モデルテストの記述省略化](https://github.com/thoughtbot/shoulda-matchers)
+- [rubocop-rails * 自動フォーマット](https://github.com/rubocop/rubocop-rails)
+- [capistrano * デプロイ用](https://github.com/capistrano/capistrano)
+- [yard * ドキュメント生成](https://github.com/lsegal/yard)
 
 </details>
 
-### Node 🎨
+### Node 🕸️
 
 <details>
   <summary>List</summary>
 
-- [tailwindcss * CSSフレームワーク]()
+- [tailwindcss * CSSフレームワーク](https://github.com/tailwindlabs/tailwindcss)
 
 </details>
-
-## Infrastructure
-
-<p align="center">
-    <img src="./docs/infrastructure.png" width="600" alt="infrastructure">
-</p>
 
 ## Relation Diagram
 
 <p align="center">
     <img src="./docs/relation_diagram.png" width="600" alt="er">
+</p>
+
+## Infrastructure
+
+<p align="center">
+    <img src="./docs/infrastructure.png" width="600" alt="infrastructure">
 </p>
 
 # Project Description
