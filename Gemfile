@@ -13,7 +13,7 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 6.0"
+gem 'puma', '~> 5.0'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
@@ -45,12 +45,35 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Execute jobs in the background [https://github.com/mperham/sidekiq]
 gem "sidekiq", "~> 7.0"
 
+# [https://github.com/heartcombo/devise]
+gem "devise"
+
+# [https://github.com/stripe/stripe-ruby]
+gem "stripe"
+
+# [https://github.com/aws/aws-sdk-ruby]
+gem "aws-sdk-s3", require: false
+
+# [https://github.com/aws/aws-sdk-ruby]
+gem 'aws-sdk-rails', require: false
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   # Reduces boot times through caching; required in config/boot.rb
   gem "bootsnap", require: false
+
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+
+  gem 'shoulda-matchers'
+
+  gem 'bullet'
 end
 
 group :development do
@@ -66,18 +89,17 @@ group :development do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+
+  gem 'annotate'
+
+  gem 'yard'
+  gem 'guard-yard'
+  gem 'yard-activesupport-concern'
+  gem 'redcarpet'
+
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-rbenv-vars', '~> 0.1'
+  gem 'capistrano3-puma', '~> 5.2'
 end
-
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
-
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "faker"
-end
-
-gem "devise"
-gem "stripe"
