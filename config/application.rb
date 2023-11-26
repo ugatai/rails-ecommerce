@@ -10,12 +10,14 @@ module Hello
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    # Set Application time zone
+    config.time_zone = 'Tokyo'
 
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then collect logs using journald, syslog or forward them somewhere else.
-    logger           = ActiveSupport::Logger.new($stdout)
+    logger = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
 
     # Set Redis as the back-end for the cache.
     config.cache_store = :redis_cache_store, {
@@ -39,7 +41,10 @@ module Hello
     config.generators do |g|
       g.assets false
       g.skip_routes true
-      g.test_framework false
+      g.test_framework :rspec,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false
     end
   end
 end

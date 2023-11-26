@@ -32,3 +32,16 @@ docker-compose.override.yml
 # Ignore IDE setting files
 /.idea/
 /.vscode/
+
+# Ignore directory
+/tmp/
+/log/
+/storage/
+/doc/*
+!/doc/.keep
+
+# Ignore file
+/config/master.key
+rspec_result.html
+CHANGELOG.md
+.DS_Store

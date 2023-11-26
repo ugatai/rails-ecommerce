@@ -29,7 +29,7 @@ x-assets: &default-assets
       - "NODE_ENV=${NODE_ENV:-production}"
   env_file:
     - ".env"
-  profiles: ["assets"]
+  profiles: [ "assets" ]
   restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
   stop_grace_period: "3s"
   tty: true
@@ -48,11 +48,20 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       POSTGRES_DB: "${POSTGRES_DB}"
     image: "postgres:15.1-bullseye"
-    profiles: ["postgres"]
+    profiles: [ "postgres" ]
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
     volumes:
       - "postgres:/var/lib/postgresql/data"
+
+  # Sequel Aceでは接続できなかったので...
+  postgres-gui:
+    image: sosedoff/pgweb
+    container_name: "postgres-gui"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
 
   redis:
     deploy:
@@ -61,7 +70,7 @@ services:
           cpus: "${DOCKER_REDIS_CPUS:-0}"
           memory: "${DOCKER_REDIS_MEMORY:-0}"
     image: "redis:7.0.5-bullseye"
-    profiles: ["redis"]
+    profiles: [ "redis" ]
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
     volumes:
@@ -82,23 +91,32 @@ services:
       retries: 3
     ports:
       - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
-    profiles: ["web"]
+    profiles: [ "web" ]
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
+
+  # システムテスト用に追加
+  selenium_chrome:
+    image: seleniarm/standalone-chromium
+    ports:
+      - "4444:4444"
 
   worker:
     <<: *default-app
     command: "bundle exec sidekiq -C config/sidekiq.yml"
-    entrypoint: []
+    entrypoint: [ ]
     deploy:
       resources:
         limits:
           cpus: "${DOCKER_WORKER_CPUS:-0}"
           memory: "${DOCKER_WORKER_MEMORY:-0}"
-    profiles: ["worker"]
+    profiles: [ "worker" ]
 
   cable:
     <<: *default-app
     command: "puma -p 28080 cable/config.ru"
-    entrypoint: []
+    entrypoint: [ ]
     deploy:
       resources:
         limits:
@@ -106,7 +124,7 @@ services:
           memory: "${DOCKER_CABLE_MEMORY:-0}"
     ports:
       - "${DOCKER_CABLE_PORT_FORWARD:-127.0.0.1:28080}:28080"
-    profiles: ["cable"]
+    profiles: [ "cable" ]
 
   js:
     <<: *default-assets
@@ -117,5 +135,5 @@ services:
     command: "yarn build:css"
 
 volumes:
-  postgres: {}
-  redis: {}
+  postgres: { }
+  redis: { }
