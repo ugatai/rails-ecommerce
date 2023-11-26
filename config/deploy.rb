@@ -5,7 +5,7 @@ lock '~> 3.18.0'
 set :application, 'rails_ecommerce'
 set :repo_url, 'git@github.com:ugatai/rails-ecommerce.git'
 set :rbenv_ruby, File.read('.ruby-version').strip
-set :branch, ENV['BRANCH'] || 'develop'
+set :branch, ENV['BRANCH'] || 'main'
 
 # Nginxの設定ファイル名と置き場所を修正
 set :nginx_config_name, "#{fetch(:application)}.conf"
