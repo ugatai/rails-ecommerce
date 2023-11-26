@@ -44,14 +44,16 @@
 
 </details>
 
-## DB Structure
-
-Creating... 📝
-
 ## Infrastructure
 
 <p align="center">
-    <img src="./docs/infrastructure.png" width="600" alt="logo">
+    <img src="./docs/infrastructure.png" width="600" alt="infrastructure">
+</p>
+
+## Relation Diagram
+
+<p align="center">
+    <img src="./docs/relation_diagram.png" width="600" alt="er">
 </p>
 
 # Project Description
