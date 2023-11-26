@@ -13,8 +13,6 @@
 
 # Rails Ecommerce Application 🛍
 
-#### URL: https://prod-rails-ecommerce.com/
-
 ### Gem 💎
 
 <details>
@@ -35,7 +33,7 @@
 
 </details>
 
-### Node 🕸️
+### Node 📗
 
 <details>
   <summary>List</summary>
