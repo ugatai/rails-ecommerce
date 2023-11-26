@@ -13,18 +13,12 @@
 
 # Rails Ecommerce Application 🛍
 
-### Sample View Page 🛒
-
-#### Application URL: https://prod-rails-ecommerce.com/
-
-<p align="center">
-    <img src="./docs/admin-sample.png" alt="logo">
-</p>
+#### URL: https://prod-rails-ecommerce.com/
 
 ### Gem 💎
 
 <details>
-  <summary>list</summary>
+  <summary>List</summary>
 
 - [devise * ユーザー認証系](https://github.com/heartcombo/devise)
 - [stripe * Stripe決済](https://github.com/stripe/stripe-ruby)
@@ -41,16 +35,28 @@
 
 </details>
 
-### Node 📖
+### Node 🎨
 
 <details>
-  <summary>list</summary>
+  <summary>List</summary>
 
 - [tailwindcss * CSSフレームワーク]()
 
 </details>
 
-# Directory Structure
+## DB Structure
+
+Creating... 📝
+
+## Infrastructure
+
+<p align="center">
+    <img src="./docs/infrastructure.png" width="600" alt="logo">
+</p>
+
+# Project Description
+
+## Directory Structure
 
 ```
 ├── .github/
@@ -86,19 +92,7 @@
 ├── yarn.lock                   # Lock file for Yarn package manager
 ```
 
-# DB Structure
-
-Creating... 📝
-
-# Infrastructure
-
-<p align="center">
-    <img src="./docs/infrastructure.png" width="600" alt="logo">
-</p>
-
-# Participation in Projects
-
-### --- Git Flow ⚠️ ---
+### Git Flow
 
 - `develop` - staging environment
 - `release` - pre marge main branch
@@ -106,7 +100,10 @@ Creating... 📝
 
 pull request flow : `develop -> release -> main`
 
-### --- Setting ⚙️ ---
+issue flow : `issue -> develop`,
+branch name : `feature/issue#1` or `fix/issue#1`
+
+### Local Development Setup
 
 ### `.env`
 
@@ -119,6 +116,7 @@ cp .env.example .env
 update .env file content in your environment
 
 ```dotenv
+# .env
 export COMPOSE_PROJECT_NAME=ecommerce
 export POSTGRES_DB=ecommerce
 
@@ -127,39 +125,34 @@ THOR_SILENCE_DEPRECATION=true
 
 Create aws credential file 🔑
 
-```sh
-# Select your ide "cursor" 
+```sh 
 EDITOR="cursor --wait" rails credentials:edit 
 ```
 
 ```yaml
-  # aws environment（Allow policy s3 and ses）
   aws:
-  access_key_id:
-  secret_access_key:
-  # stripe environment
+    access_key_id: hogehoge
+    secret_access_key: foofoo
+
   stripe:
-    publishable_key:
-    secret_key:
-    endpoint_secret:
-  # local mail environment
+    publishable_key: hogehoge
+    secret_key: foofoo
+    endpoint_secret: barbar
+
   gmail:
-    email:
-    app_password:
-  # rds
+    email: hogehoge
+    app_password: foofoo
+
   db:
-    password:
-    hostname:
+    password: hogehoge
+    hostname: foofoo
 ```
 
-### `rails`
-
 ```sh
-# run migration
 rails db:migrate
 ```
 
-# Command
+## Command
 
 ### `Docker`
 
