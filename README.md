@@ -5,58 +5,61 @@
 <p align="center">
 <img src="https://img.shields.io/badge/Ruby-3.1.2-red.svg?logo=ruby&style=flat" alt="Ruby 3.1.2">
 <img src="https://img.shields.io/badge/Rails-7.0.4-orange.svg?logo=ruby-on-rails&style=flat" alt="Rails 7.0.4">
-<img src="https://img.shields.io/badge/rspec--rails-6.0.3-brightgreen.svg" alt="rspec-rails 6.0.3">
-<img src="https://img.shields.io/badge/Tailwind CSS-3.2.4-green.svg?logo=tailwind-css&style=flat" alt="Tailwind CSS 3.2.4">
-<img src="https://img.shields.io/badge/PostgreSQL-15.x-blue.svg?logo=postgresql&style=flat" alt="PostgreSQL 15.x">
+<img src="https://img.shields.io/badge/Node.js-18.6.0-green.svg?logo=node.js&style=flat" alt="Node.js 18.6.0">
+<img src="https://img.shields.io/badge/PostgreSQL-15.0-blue.svg?logo=postgresql&style=flat" alt="PostgreSQL 15.0">
 <img src="https://github.com/nickjj/docker-rails-example/workflows/CI/badge.svg?branch=main" alt="PostgreSQL 15.x">
 </p>
 
 # Rails Ecommerce Application 🛍
 
-### Gem 💎
+### Gem
 
 <details>
-  <summary>List</summary>
+  <summary>一覧</summary>
 
-- [devise * ユーザー認証系](https://github.com/heartcombo/devise)
+- [devise * ユーザー認証用](https://github.com/heartcombo/devise)
 - [stripe * Stripe決済](https://github.com/stripe/stripe-ruby)
-- [aws-sdk-rails * Amazon Web Service SDK](https://github.com/aws/aws-sdk-rails)
-- [bullet * N+1検知](https://github.com/flyerhzm/bullet)
-- [factory_bot_rails * ダミーデータ作成](https://github.com/thoughtbot/factory_bot_rails)
+- [aws-sdk-rails * AWS-SDK](https://github.com/aws/aws-sdk-rails)
+- [bullet * N+1検知用](https://github.com/flyerhzm/bullet)
+- [annotate * モデルのアノテーションコメント用](https://github.com/ctran/annotate_models)
 - [rspec-rails * テストフレームワーク](https://github.com/rspec/rspec-rails)
-- [capybara * システムテストの自動化](https://github.com/teamcapybara/capybara)
-- [selenium-webdriver * システムテストの自動化](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)
-- [shoulda-matchers * モデルテストの記述省略化](https://github.com/thoughtbot/shoulda-matchers)
+- [capybara * システムテスト用](https://github.com/teamcapybara/capybara)
+- [selenium-webdriver * システムテスト用](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)
 - [rubocop-rails * 自動フォーマット](https://github.com/rubocop/rubocop-rails)
 - [capistrano * デプロイ用](https://github.com/capistrano/capistrano)
-- [yard * ドキュメント生成](https://github.com/lsegal/yard)
 
 </details>
 
-### Node 📗
+### Node
 
 <details>
-  <summary>List</summary>
+  <summary>一覧</summary>
 
 - [tailwindcss * CSSフレームワーク](https://github.com/tailwindlabs/tailwindcss)
 
 </details>
 
-## Relation Diagram
+---
+
+## ER図
 
 <p align="center">
     <img src="./docs/relation_diagram.png" width="600" alt="er">
 </p>
 
-## Infrastructure
+---
+
+## インフラ構成図
 
 <p align="center">
     <img src="./docs/infrastructure.png" width="600" alt="infrastructure">
 </p>
 
-# Project Description
+---
 
-## Directory Structure
+## プロジェクト詳細
+
+### ディレクトリ構造
 
 ```
 ├── .github/
@@ -94,36 +97,38 @@
 
 ### Git Flow
 
-- `develop` - staging environment
-- `release` - pre marge main branch
-- `main` - production environment
+- `develop` - ローカル環境
+- `release` - ステージング環境
+- `main` - 本番環境
 
-pull request flow : `develop -> release -> main`
+プルリクエストの流れ : `develop -> release -> main`
 
-issue flow : `issue -> develop`,
-branch name : `feature/issue#1` or `fix/issue#1`
+ブランチ命名規則 : 機能開発：`feature/hoge-issue#1`, バグ改修：`hotfix/hoge-issue#1`
 
-### Local Development Setup
+---
+
+### ローカル環境構築
 
 ### `.env`
-
-create .env file to copy .env.example file.
 
 ```sh
 cp .env.example .env
 ```
 
-update .env file content in your environment
+環境ファイルの編集
 
 ```dotenv
-# .env
-export COMPOSE_PROJECT_NAME=ecommerce
-export POSTGRES_DB=ecommerce
+# ローカルのプロジェクト環境に合わせる
+export COMPOSE_PROJECT_NAME=base
+export POSTGRES_DB=base
+export POSTGRES_USER=root
+export POSTGRES_PASSWORD=password
 
+# 警告表示を消す
 THOR_SILENCE_DEPRECATION=true
 ```
 
-Create aws credential file 🔑
+暗号ファイルの編集 🔑
 
 ```sh 
 EDITOR="cursor --wait" rails credentials:edit 
@@ -131,86 +136,65 @@ EDITOR="cursor --wait" rails credentials:edit
 
 ```yaml
   aws:
-    access_key_id: hogehoge
-    secret_access_key: foofoo
+    access_key_id:
+    secret_access_key:
 
   stripe:
-    publishable_key: hogehoge
-    secret_key: foofoo
-    endpoint_secret: barbar
+    publishable_key:
+    secret_key:
+    endpoint_secret:
 
   gmail:
-    email: hogehoge
-    app_password: foofoo
+    email:
+    app_password:
 
   db:
-    password: hogehoge
-    hostname: foofoo
+    password:
+    hostname:
 ```
+
+### `Docker`
+
+#### イメージのビルドと立ち上げ:
+
+```docker
+docker-compose build --no-cache
+docker-compose up -d
+```
+
+#### Webコンテナ内へのアクセス:
+
+```docker
+docker-compose run --rm web bash
+```
+
+マイグレーション実行
 
 ```sh
 rails db:migrate
 ```
 
-## Command
+---
 
-### `Docker`
-
-#### Build everything:
-
-```sh
-docker-compose build --no-cache
-docker-compose up -d
-```
-
-#### Access to Docker application containers
-
-```sh
-docker-compose run --rm web bash
-```
-
-#### Stopping everything:
-
-```sh
-docker-compose down
-```
+## 開発コマンド系
 
 ### `Bundle`
 
 ```sh
-# install gems
-bundle install
-# add annotate comment to model file
-bundle exec annotate --models 
+# モデル関連のファイルにアノテーションを記載
+bundle exec annotate --models
+# テストの実施（RSpec）
+bundle exec rspec
+bundle exec rspec spec/system/
+# デプロイ
+bundle exec cap production deploy
 ```
 
 ### `rubocop`
 
 ```sh
-# Static analysis command
+# フォーマットの静的解析
 rubocop
-# Auto fix command
+# フォーマットの自動修正
 rubocop --auto-correct-all
-```
-
-### `rspec`
-
-```sh
-# Run all test file
-bundle exec rspec
-# Run select test file
-bundle exec rspec spec/system/
-```
-
-### `yard`
-
-```sh
-bundle exec yard
-bundle bundle exec yard server
-```
-
-### `deploy`
-
-```sh
-bundle exec cap production deploy
 ```
